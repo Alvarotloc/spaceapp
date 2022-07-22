@@ -5,7 +5,6 @@ import styles from "../styles/Home.module.css";
 const HomePage: NextPage = (): JSX.Element => {
   return (
     <LayoutPrincipal>
-      <div className={styles.fondo_home} />
       <section className={styles.contenedor_home}>
         <div className={styles.contenedor_info}>
           <h1 className={styles['contenedor_info-titulo']}>
@@ -19,7 +18,10 @@ const HomePage: NextPage = (): JSX.Element => {
           </p>
         </div>
         <div className={styles.boton_explorar}>Explore</div>
+
       </section>
+      {/* <section className={styles.contenedor_home}>
+      </section> */}
     </LayoutPrincipal>
   );
 };

@@ -38,6 +38,7 @@ const Navbar: FC = (): JSX.Element => {
         className={`${styles.contenedor_navbar__navegacion} ${
           sidebarVisible ? styles["contenedor_navbar__navegacion-visible"] : ""
         }`}
+        onClick={toggleSidebar}
       >
         <div className={styles["contenedor_navbar__navegacion-line"]} />
         <Link href={"/"}>

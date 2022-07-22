@@ -113,18 +113,18 @@
   align-items: center;
   font-size: 1.6rem;
 }
-.contenedor_navbar__navegacion a:hover::after,
-.contenedor_navbar__navegacion-enlace_activo::after {
-  content: "";
-  position: absolute;
-  height: 0.3rem;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-  background-color: var(--smooth);
-}
 @media (min-width: 602px) {
+  .contenedor_navbar__navegacion a:hover::after,
+  .contenedor_navbar__navegacion-enlace_activo::after {
+    content: "";
+    position: absolute;
+    height: 0.3rem;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    background-color: var(--smooth);
+  }
   .contenedor_navbar__navegacion a {
     height: 100%;
     font-size: 1.4rem;
