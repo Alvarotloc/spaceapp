@@ -115,6 +115,7 @@
     text-transform: uppercase;
     cursor: pointer;
     position: relative;
+    text-decoration: none;
 }
 @media (min-width: 602px) {
     .boton_explorar{
