@@ -1,0 +1,221 @@
+.contenedor_crew {
+  background-image: url("/assets/crew/background-crew-mobile.jpg");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12rem 2rem;
+  gap: 3.2rem;
+}
+@media (min-width: 602px) {
+  .contenedor_crew {
+    padding: 12rem 2rem 0rem 2rem;
+    align-items: flex-start;
+    height: auto;
+    background-image: url("/assets/crew/background-crew-tablet.jpg");
+  }
+}
+@media (min-width: 998px) {
+  .contenedor_crew {
+    padding: 20rem 10vw 0rem 13vw;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url("/assets/crew/background-crew-desktop.jpg");
+  }
+}
+.contenedor_crew-titulo {
+  font-size: 1.6rem;
+  font-family: "Barlow Condensed", sans-serif;
+  letter-spacing: 0.27rem;
+  color: var(--white);
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-bottom: 3.2rem;
+}
+@media (min-width: 602px) {
+  .contenedor_crew-titulo {
+    font-size: 2rem;
+    letter-spacing: 0.338rem;
+  }
+}
+@media (min-width: 998px) {
+  .contenedor_crew-titulo {
+    font-size: 2.8rem;
+    letter-spacing: 0.472rem;
+  }
+}
+.contenedor_crew-titulo span {
+  font-weight: bold;
+  color: rgb(139, 139, 139);
+}
+.contenedor_informacion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.2rem;
+}
+@media (min-width: 998px) {
+    .contenedor_informacion{
+      flex-direction: row;
+      position: absolute;
+      bottom: -4rem;
+    }
+}
+.contenedor_informacion-general {
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.2rem;
+}
+@media (min-width: 602px) {
+  .contenedor_informacion-general {
+    width: 80%;
+    gap: 4rem;
+  }
+}
+@media (min-width: 998px) {
+  .contenedor_informacion-general {
+    gap: 1.5rem;
+    align-items: flex-start;
+    width: 50%;
+  }
+}
+.contenedor_informacion-rol,
+.contenedor_informacion-nombre {
+  font-family: "Bellefair", serif;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.contenedor_informacion-rol {
+  order: 2;
+  color: #979797;
+  font-size: 1.6rem;
+}
+@media (min-width: 602px) {
+  .contenedor_informacion-rol {
+    font-size: 2.4rem;
+  }
+}
+@media (min-width: 998px) {
+  .contenedor_informacion-rol {
+    font-size: 2.8rem;
+  } 
+}
+.contenedor_informacion-nombre {
+  order: 3;
+  font-size: 2.4rem;
+  color: var(--white);
+}
+@media (min-width: 602px) {
+  .contenedor_informacion-nombre {
+    font-size: 4rem;
+  }
+}
+@media (min-width: 998px) {
+  .contenedor_informacion-nombre {
+    font-size: 5rem;
+  }
+}
+.contenedor_informacion-bio {
+  order: 4;
+  font-family: "Barlow", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--smooth);
+  line-height: 2.5rem;
+  text-align: center;
+}
+@media (min-width: 602px) {
+  .contenedor_informacion-bio {
+    font-size: 1.6rem;
+    line-height: 2.8rem;
+    width: 75%;
+  }
+}
+@media (min-width: 998px) {
+  .contenedor_informacion-bio {
+    font-size: 1.7rem;
+    line-height: 3.2rem;
+    text-align: left;
+  }
+    
+}
+.contenedor_informacion-selectores {
+  order: 1;
+  display: flex;
+  gap: 1.6rem;
+}
+@media (min-width: 602px) {
+  .contenedor_informacion-selectores {
+    order: 4;
+  }
+}
+@media (min-width: 998px) {
+  .contenedor_informacion-selectores {
+    margin-top: 8.5rem;
+  } 
+}
+.contenedor_informacion-selectores button {
+  border-radius: 50%;
+  border: none;
+  background-color: #979797;
+  height: 1rem;
+  width: 1rem;
+  cursor: pointer;
+  transition: background-color 0.4s;
+}
+@media (min-width: 998px) {
+  .contenedor_informacion-selectores button{
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+}
+.contenedor_informacion-selectores button:hover {
+  background-color: #d0d0d0 !important;
+}
+.contenedor_informacion-selectores-activo {
+  background-color: var(--white) !important;
+}
+.contenedor_informacion-imagen {
+  position: relative;
+  width: 17.712rem;
+  height: 26rem;
+  order: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contenedor_informacion-imagen hr {
+  position: absolute;
+  bottom: 0;
+  width: 90vw;
+  border: none;
+  height: 0.01rem;
+  background-color: #979797;
+}
+@media (min-width: 602px) {
+  .contenedor_informacion-imagen {
+    order: 5;
+    width: 45.637rem;
+    height: 63rem;
+    bottom: -7rem;
+  }
+  .contenedor_informacion-imagen hr {
+    display: none;
+  }
+}
+@media (min-width: 998px) {
+  .contenedor_informacion-imagen {
+    height: 52rem;
+    width: 42rem;
+    bottom: 0;
+  }
+} 

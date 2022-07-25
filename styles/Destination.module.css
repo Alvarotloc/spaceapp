@@ -23,7 +23,7 @@
 @media (min-width: 998px) {
   .contenedor_destination {
     height: 100vh;
-    padding: 20rem 10vw 5rem 10vw;
+    padding: 20rem 10vw 5rem 13vw;
     background-image: url("/assets/destination/background-destination-desktop.jpg");
   }
 }
@@ -61,7 +61,6 @@
 }
 @media (min-width: 998px) {
     .contenedor_informacion {
-        padding: 0 2rem;
         flex-direction: row;
         justify-content: center;
         gap: 15.7rem;
@@ -99,8 +98,8 @@
 }
 .contenedor_informacion-general hr {
   border: none;
-  height: 0.01rem;
   width: 100%;
+  height: 0.01rem;
   background-color: #979797;
 }
 .contenedor_informacion-general-navegacion {

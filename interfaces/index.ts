@@ -8,3 +8,9 @@ export interface IDestination {
     distance    : string;
     travel      : string;
 }
+export interface ICrew {
+    nombre      : string;
+    imagen      : string;
+    rol         : string;
+    bio         : string;
+}
