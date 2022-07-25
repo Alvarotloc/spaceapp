@@ -47,6 +47,7 @@ const CrewPage: NextPage = (): JSX.Element => {
               layout="fill"
               objectFit="scale-down"
               priority={true}
+              objectPosition="bottom"
             />
             <hr />
           </div>
