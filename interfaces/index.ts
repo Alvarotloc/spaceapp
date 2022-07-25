@@ -1,5 +1,5 @@
 export interface IChildren {
-    children : JSX.Element | JSX.Element[];
+    children    : JSX.Element | JSX.Element[];
 }
 export interface IDestination {
     nombre      : string;
@@ -13,4 +13,10 @@ export interface ICrew {
     imagen      : string;
     rol         : string;
     bio         : string;
+}
+export interface ITech {
+    nombre        : string;
+    imagen        : string;
+    imagenDesktop : string;
+    descripcion   : string;
 }

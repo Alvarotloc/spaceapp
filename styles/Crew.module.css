@@ -62,11 +62,11 @@
   gap: 3.2rem;
 }
 @media (min-width: 998px) {
-    .contenedor_informacion{
-      flex-direction: row;
-      position: absolute;
-      bottom: -4rem;
-    }
+  .contenedor_informacion {
+    flex-direction: row;
+    position: absolute;
+    bottom: -4rem;
+  }
 }
 .contenedor_informacion-general {
   order: 2;
@@ -107,7 +107,7 @@
 @media (min-width: 998px) {
   .contenedor_informacion-rol {
     font-size: 2.8rem;
-  } 
+  }
 }
 .contenedor_informacion-nombre {
   order: 3;
@@ -146,7 +146,6 @@
     line-height: 3.2rem;
     text-align: left;
   }
-    
 }
 .contenedor_informacion-selectores {
   order: 1;
@@ -161,7 +160,7 @@
 @media (min-width: 998px) {
   .contenedor_informacion-selectores {
     margin-top: 8.5rem;
-  } 
+  }
 }
 .contenedor_informacion-selectores button {
   border-radius: 50%;
@@ -173,7 +172,7 @@
   transition: background-color 0.4s;
 }
 @media (min-width: 998px) {
-  .contenedor_informacion-selectores button{
+  .contenedor_informacion-selectores button {
     height: 1.5rem;
     width: 1.5rem;
   }
@@ -218,4 +217,4 @@
     width: 42rem;
     bottom: 0;
   }
-} 
+}

@@ -24,7 +24,7 @@ const CrewPage: NextPage = (): JSX.Element => {
             <p className={styles["contenedor_informacion-bio"]}>
               {DICCIONARIO_CREW[crewMember].bio}
             </p>
-            <div className={styles["contenedor_informacion-selectores"]}>
+            <nav className={styles["contenedor_informacion-selectores"]}>
               {DICCIONARIO_CREW.map((member, index) => (
                 <button
                   key={index}
@@ -38,7 +38,7 @@ const CrewPage: NextPage = (): JSX.Element => {
                   }
                 />
               ))}
-            </div>
+            </nav>
           </div>
           <div className={styles["contenedor_informacion-imagen"]}>
             <Image
