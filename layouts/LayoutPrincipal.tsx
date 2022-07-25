@@ -2,21 +2,39 @@ import { FC } from "react";
 import type { IChildren } from "../interfaces/index";
 import Head from "next/head";
 import Navbar from "../components/Navbar";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 
 const LayoutPrincipal: FC<IChildren> = ({ children }): JSX.Element => {
-  const {asPath} = useRouter();
+  const { asPath } = useRouter();
   const DICCIONARIO_RUTAS = {
-    '/': 'Home',
-    '/destination' : 'Destination',
-    '/crew' : 'Crew',
-    '/technology' : 'Technology'
-  }
+    "/": "Home",
+    "/destination": "Destination",
+    "/crew": "Crew",
+    "/technology": "Technology",
+  };
   return (
     <>
       <Head>
-        <title>SpaceApp - {DICCIONARIO_RUTAS[asPath as keyof typeof DICCIONARIO_RUTAS]}</title>
-        <meta name="description" content="Aplicación web sobre viajes espaciales" />
+        <title>
+          SpaceApp -{" "}
+          {DICCIONARIO_RUTAS[asPath as keyof typeof DICCIONARIO_RUTAS]}
+        </title>
+        <meta
+          name="description"
+          content="Aplicación web sobre viajes espaciales"
+        />
+        <meta
+          property="og:title"
+          content="SpaceApp - Aplicacion Espacial"
+        />
+        <meta
+          property="og:description"
+          content="Aplicación web futurista sobre viajes espaciales"
+        />
+        <meta
+          property="og:image"
+          content="/assets/ogImage.webp"
+        />
         <link
           rel="icon"
           type="image/png"
@@ -25,9 +43,7 @@ const LayoutPrincipal: FC<IChildren> = ({ children }): JSX.Element => {
         />
       </Head>
       <Navbar />
-      <main>
-        {children}
-      </main>
+      <main>{children}</main>
     </>
   );
 };
