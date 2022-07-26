@@ -20,3 +20,12 @@ export interface ITech {
     imagenDesktop : string;
     descripcion   : string;
 }
+export type DestinationProps = {
+    planetas : IDestination[];
+}
+export type CrewProps = {
+    crew : ICrew[];
+}
+export type TechProps = {
+    tecnologias : ITech[];
+}

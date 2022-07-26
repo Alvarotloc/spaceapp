@@ -1,11 +1,11 @@
-import { NextPage } from "next";
 import Image from "next/image";
 import LayoutPrincipal from "../../layouts/LayoutPrincipal";
 import styles from "../../styles/Technology.module.css";
-import { DICCIONARIO_TECHNOLOGY } from "../../utils/index";
 import { useState } from "react";
+import type { GetStaticProps, NextPage } from "next";
+import type { ITech, TechProps } from "../../interfaces";
 
-const TechonologyPage: NextPage = (): JSX.Element => {
+const TechonologyPage: NextPage<TechProps> = ({tecnologias}): JSX.Element => {
   const [tech, setTech] = useState<number>(0);
   return (
     <LayoutPrincipal>
@@ -16,8 +16,8 @@ const TechonologyPage: NextPage = (): JSX.Element => {
         <div className={styles.contenedor_informacion}>
             <a className={`${styles["contenedor_informacion-imagen"]} ${styles.imagen_mobile}`}>
             <Image
-              src={DICCIONARIO_TECHNOLOGY[tech].imagen}
-              alt={`Imagen del miembro ${DICCIONARIO_TECHNOLOGY[tech].nombre}`}
+              src={tecnologias[tech].imagen}
+              alt={`Imagen del miembro ${tecnologias[tech].nombre}`}
               layout="fill"
               objectFit="cover"
               priority={true}
@@ -25,8 +25,8 @@ const TechonologyPage: NextPage = (): JSX.Element => {
             </a>
             <a className={`${styles["contenedor_informacion-imagen"]} ${styles.imagen_desktop}`}>
             <Image
-              src={DICCIONARIO_TECHNOLOGY[tech].imagenDesktop}
-              alt={`Imagen del miembro ${DICCIONARIO_TECHNOLOGY[tech].nombre}`}
+              src={tecnologias[tech].imagenDesktop}
+              alt={`Imagen del miembro ${tecnologias[tech].nombre}`}
               layout="fill"
               objectFit="cover"
               priority={true}
@@ -35,11 +35,11 @@ const TechonologyPage: NextPage = (): JSX.Element => {
             </a>
           <div className={styles["contenedor_informacion-general"]}>
             <nav className={styles["contenedor_informacion-navegacion"]}>
-              {DICCIONARIO_TECHNOLOGY.map(({ nombre }, index) => (
+              {tecnologias.map(({ nombre }, index) => (
                 <div
                   className={`${styles["contenedor_informacion-indicador"]} ${
-                    DICCIONARIO_TECHNOLOGY[tech].nombre ===
-                    DICCIONARIO_TECHNOLOGY[index].nombre
+                    tecnologias[tech].nombre ===
+                    tecnologias[index].nombre
                       ? styles["contenedor_informacion-indicador-activo"]
                       : ""
                   }`}
@@ -53,10 +53,10 @@ const TechonologyPage: NextPage = (): JSX.Element => {
             <section className={styles.contenedor_textos}>
               <h2 className={styles["contenedor_informacion-nombre"]}>
                 <span>The terminology...</span>{" "}
-                {DICCIONARIO_TECHNOLOGY[tech].nombre}
+                {tecnologias[tech].nombre}
               </h2>
               <p className={styles["contenedor-informacion-descripcion"]}>
-                {DICCIONARIO_TECHNOLOGY[tech].descripcion}
+                {tecnologias[tech].descripcion}
               </p>
             </section>
           </div>
@@ -65,5 +65,15 @@ const TechonologyPage: NextPage = (): JSX.Element => {
     </LayoutPrincipal>
   );
 };
+
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  const resp = await fetch(`${process.env.BACKEND_URL}/technologies`);
+  const tecnologias:ITech[] = await resp.json();
+  return {
+    props: {
+      tecnologias
+    }
+  }
+}
 
 export default TechonologyPage;

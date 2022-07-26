@@ -1,11 +1,11 @@
-import { NextPage } from "next";
 import Image from "next/image";
 import LayoutPrincipal from "../../layouts/LayoutPrincipal";
 import styles from "../../styles/Crew.module.css";
 import { useState } from "react";
-import { DICCIONARIO_CREW } from "../../utils";
+import type { NextPage, GetStaticProps } from "next";
+import type { CrewProps, ICrew } from "../../interfaces";
 
-const CrewPage: NextPage = (): JSX.Element => {
+const CrewPage: NextPage<CrewProps> = ({crew}): JSX.Element => {
   const [crewMember, setCrewMember] = useState<number>(0);
   return (
     <LayoutPrincipal>
@@ -16,23 +16,23 @@ const CrewPage: NextPage = (): JSX.Element => {
         <div className={styles.contenedor_informacion}>
           <div className={styles["contenedor_informacion-general"]}>
             <h2 className={styles["contenedor_informacion-rol"]}>
-              {DICCIONARIO_CREW[crewMember].rol}
+              {crew[crewMember].rol}
             </h2>
             <h3 className={styles["contenedor_informacion-nombre"]}>
-              {DICCIONARIO_CREW[crewMember].nombre}
+              {crew[crewMember].nombre}
             </h3>
             <p className={styles["contenedor_informacion-bio"]}>
-              {DICCIONARIO_CREW[crewMember].bio}
+              {crew[crewMember].bio}
             </p>
             <nav className={styles["contenedor_informacion-selectores"]}>
-              {DICCIONARIO_CREW.map((member, index) => (
+              {crew.map((member, index) => (
                 <button
                   key={index}
                   type="button"
                   onClick={() => setCrewMember(index)}
                   className={
-                    DICCIONARIO_CREW[index].nombre ===
-                    DICCIONARIO_CREW[crewMember].nombre
+                    crew[index].nombre ===
+                    crew[crewMember].nombre
                       ? styles["contenedor_informacion-selectores-activo"]
                       : ""
                   }
@@ -42,8 +42,8 @@ const CrewPage: NextPage = (): JSX.Element => {
           </div>
           <div className={styles["contenedor_informacion-imagen"]}>
             <Image
-              src={DICCIONARIO_CREW[crewMember].imagen}
-              alt={`Imagen del miembro ${DICCIONARIO_CREW[crewMember].nombre}`}
+              src={crew[crewMember].imagen}
+              alt={`Imagen del miembro ${crew[crewMember].nombre}`}
               layout="fill"
               objectFit="scale-down"
               priority={true}
@@ -56,5 +56,16 @@ const CrewPage: NextPage = (): JSX.Element => {
     </LayoutPrincipal>
   );
 };
+
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  const resp = await fetch(`${process.env.BACKEND_URL}/crews`);
+  const crew:ICrew[] = await resp.json();
+  return {
+    props: {
+      crew
+    }
+  }
+}
+
 
 export default CrewPage;

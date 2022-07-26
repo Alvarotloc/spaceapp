@@ -1,11 +1,11 @@
-import { NextPage } from "next";
+import type { IDestination, DestinationProps } from '../../interfaces/index';
+import type { NextPage,GetStaticProps } from "next";
 import Image from "next/image";
 import LayoutPrincipal from "../../layouts/LayoutPrincipal";
 import styles from "../../styles/Destination.module.css";
 import { useState } from "react";
-import { DICCIONARIO_INFORMACION_PLANETAS } from "../../utils";
 
-const DestinationPage: NextPage = (): JSX.Element => {
+const DestinationPage: NextPage<DestinationProps> = ({planetas}): JSX.Element => {
   const [planeta, setPlaneta] = useState(0);
   
   return (
@@ -17,8 +17,8 @@ const DestinationPage: NextPage = (): JSX.Element => {
         <div className={styles.contenedor_informacion}>
           <div className={styles["contenedor_informacion-imagen"]}>
             <Image
-              src={DICCIONARIO_INFORMACION_PLANETAS[planeta].imagen}
-              alt={`Imagen del planeta: ${DICCIONARIO_INFORMACION_PLANETAS[planeta].nombre}`}
+              src={planetas[planeta].imagen}
+              alt={`Imagen del planeta: ${planetas[planeta].nombre}`}
               layout="fill"
               objectFit="cover"
               priority={true}
@@ -28,11 +28,11 @@ const DestinationPage: NextPage = (): JSX.Element => {
             <nav
               className={styles["contenedor_informacion-general-navegacion"]}
             >
-              {DICCIONARIO_INFORMACION_PLANETAS.map(({ nombre },index) => (
+              {planetas.map(({ nombre },index) => (
                 <a
                   key={nombre}
                   className={
-                    nombre === DICCIONARIO_INFORMACION_PLANETAS[planeta].nombre
+                    nombre === planetas[planeta].nombre
                       ? styles[
                           "contenedor_informacion-general-navegacion_activo"
                         ]
@@ -45,20 +45,20 @@ const DestinationPage: NextPage = (): JSX.Element => {
               ))}
             </nav>
             <h2 className={styles.nombre_planeta}>
-              {DICCIONARIO_INFORMACION_PLANETAS[planeta].nombre}
+              {planetas[planeta].nombre}
             </h2>
             <p className={styles.descripcion_planeta}>
-              {DICCIONARIO_INFORMACION_PLANETAS[planeta].descripcion}
+              {planetas[planeta].descripcion}
             </p>
             <hr />
             <div className={styles.detalles_planeta}>
               <section className={styles["detalles_planeta-info"]}>
                 <h3>Avg. Distance</h3>
-                <p>{DICCIONARIO_INFORMACION_PLANETAS[planeta].distance}</p>
+                <p>{planetas[planeta].distance}</p>
               </section>
               <section className={styles["detalles_planeta-info"]}>
                 <h3>Est. Travel Time</h3>
-                <p>{DICCIONARIO_INFORMACION_PLANETAS[planeta].travel}</p>
+                <p>{planetas[planeta].travel}</p>
               </section>
             </div>
           </div>
@@ -67,5 +67,16 @@ const DestinationPage: NextPage = (): JSX.Element => {
     </LayoutPrincipal>
   );
 };
+
+
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  const resp = await fetch(`${process.env.BACKEND_URL}/planetas`);
+  const planetas:IDestination[] = await resp.json();
+  return {
+    props: {
+      planetas
+    }
+  }
+}
 
 export default DestinationPage;
