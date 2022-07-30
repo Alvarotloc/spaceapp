@@ -33,7 +33,7 @@ const LayoutPrincipal: FC<IChildren> = ({ children }): JSX.Element => {
         />
         <meta
           property="og:image"
-          content="/assets/ogImage.webp"
+          content="./assets/ogImage.webp"
         />
         <link
           rel="icon"
